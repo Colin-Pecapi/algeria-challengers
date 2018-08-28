@@ -1,0 +1,17 @@
+<h2>Heroes details</h2>
+<button (click)="goBack()">Go back</button>
+<div *ngIf="hero ;else noDetails">
+  <div id="hero-{{hero.id}}">
+    <h3>{{hero.name | uppercase}} Details</h3>
+    <div>
+      <span>id: </span>{{hero.id}}</div>
+    <div>
+      <label>name:
+        <input [(ngModel)]="hero.name" placeholder="name">
+      </label>
+    </div>
+  </div>
+</div>
+<ng-template #noDetails>
+  <p>No details</p>
+</ng-template>
