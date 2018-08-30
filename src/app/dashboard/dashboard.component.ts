@@ -13,7 +13,6 @@ export class DashboardComponent implements OnInit {
   heroes : Hero[];
 
 
-
   // Initialiseurs
   constructor(private heroService: HeroService) { }
 
@@ -22,7 +21,11 @@ export class DashboardComponent implements OnInit {
   }
 
   getHeroes(): void{
-    this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes.slice(1, 5));
+    // Affiche les 4 derniers héros
+    // this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes.slice(heroes.length-4, heroes.length));
+
+    // Affiche les 4 derniers héros le dernier en premier
+    this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes.reverse().slice(0, 4));
   }
 
 }

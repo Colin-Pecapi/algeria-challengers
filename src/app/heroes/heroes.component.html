@@ -10,3 +10,12 @@
     </li>
   </ul>
 </div>
+<div>
+  <label>
+    <input #heroName />
+  </label>
+  <!-- Fonction add du composant HeroesComponent -->
+  <!-- La valeur est passé en parametre et est initialisé à '' -->
+<button (click)="add(heroName.value); heroName.value=''" > Add </button>
+
+</div>

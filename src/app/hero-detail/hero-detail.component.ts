@@ -50,6 +50,15 @@ getHero(): void {
   this.heroService.getHero(id)
   .subscribe(hero => this.hero = hero);
 }
+/**
+ * Enregistre les modifications du héro faites dans la page 
+ */
+save(): void {
+  // Appel le service pour modification
+  // Si l'observation est positive, la page reviens en arrière.
+  this.heroService.updateHeroe(this.hero)
+  .subscribe(() => this.goBack());
+}
 
 /**
  * Retourne à la derniere page.
