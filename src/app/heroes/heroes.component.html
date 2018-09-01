@@ -3,10 +3,13 @@
 <div>
   <ul class="heroes">
     <li *ngFor="let hero of heroes">
-      <a routerLink="/detail/{{hero.id}}">
-        <!-- Colonne 1 -->
-        <span class="badge">{{hero.id}}</span> {{hero.name}}
-      </a>
+      <span>
+        <a routerLink="/detail/{{hero.id}}">
+          <!-- Colonne 1 -->
+          <span class="badge">{{hero.id}}</span> {{hero.name}}
+        </a>
+        <button class="delete" title="delete hero" (click)="delete(hero)">X</button>
+      </span>
     </li>
   </ul>
 </div>
@@ -16,6 +19,6 @@
   </label>
   <!-- Fonction add du composant HeroesComponent -->
   <!-- La valeur est passé en parametre et est initialisé à '' -->
-<button (click)="add(heroName.value); heroName.value=''" > Add </button>
+  <button (click)="add(heroName.value); heroName.value=''"> Add </button>
 
 </div>
