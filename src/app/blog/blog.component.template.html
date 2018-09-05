@@ -1,18 +1,5 @@
-<h3><a>Home</a></h3>
-
-<h3>Derniers héros :</h3>
-
-<div class="grid grid-pad" style="display: flex;" >
-  <a *ngFor="let hero of heroes" class="col-1-4" routerLink="/detail/{{hero.id}}">
-    <div class="module hero">
-      <h4>{{hero.name}}</h4>
-    </div>
-  </a>
-</div>
-<p>
-  <app-hero-search></app-hero-search>
-</p>
-
+<h3><a href="#">Titre</a></h3>
+<p>Texte</p>
 <div class="blog-poast-info">
   <ul>
     <li><i class="glyphicon glyphicon-user"> </i><a class="admin" href="#"> Admin </a></li>

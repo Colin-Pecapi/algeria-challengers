@@ -1,4 +1,4 @@
-<h2>Heroes components</h2>
+<h3><a href="#">Liste des héros</a></h3>
 
 <div>
   <ul class="heroes">
@@ -13,7 +13,7 @@
     </li>
   </ul>
 </div>
-<div>
+<p>
   <label>
     <input #heroName />
   </label>
@@ -21,4 +21,14 @@
   <!-- La valeur est passé en parametre et est initialisé à '' -->
   <button (click)="add(heroName.value); heroName.value=''"> Add </button>
 
+</p>
+
+<div class="blog-poast-info">
+  <ul>
+    <li><i class="glyphicon glyphicon-user"> </i><a class="admin" href="#"> Admin </a></li>
+    <li><i class="glyphicon glyphicon-calendar"> </i>30-12-2015</li>
+    <li><i class="glyphicon glyphicon-comment"> </i><a class="p-blog" href="#">3 Comments </a></li>
+    <li><i class="glyphicon glyphicon-heart"> </i><a class="admin" href="#">5 favourites </a></li>
+    <li><i class="glyphicon glyphicon-eye-open"> </i>1.128 views</li>
+  </ul>
 </div>
