@@ -34,6 +34,7 @@ export class HeroService {
 
   /** Url de l'api http contenant les héros  */
   private heroesUrl = 'api/heroes';
+  // private heroesUrl = 'http://factory.devtvornica.org/api/wp-json/wp/v2/posts?slug=hello-world';
 
   /** Héro sélectionné  */
   private currentHero: Hero;
@@ -48,8 +49,8 @@ export class HeroService {
   /** 
    * GET heroes from the HTTP server
    */
-  getHeroes(): Observable<Hero[]> {
-    return this.http.get<Hero[]>(this.heroesUrl)
+  getHeroes(): Observable<any[]> {
+    return this.http.get<any[]>(this.heroesUrl)
       .pipe(
         // The HeroService methods will tap into the flow of observable values 
         // and send a message (via log()) to the message area at the bottom of the page.
@@ -67,9 +68,9 @@ export class HeroService {
    * 
    * @param id 
    */
-  getHero(id: number): Observable<Hero> {
+  getHero(id: number): Observable<any> {
     const url = `${this.heroesUrl}/${id}`;
-    return this.http.get<Hero>(url).pipe(
+    return this.http.get<any>(url).pipe(
 
       tap(
         _ => this.log(`OK : fetched hero id=${id}`)),

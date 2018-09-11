@@ -6,44 +6,75 @@ import { AppComponent } from './app.component';
 import { FormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
-// Composants spécifiques
-import { HeroesComponent } from './heroes/heroes.component';
-import { HeroDetailComponent } from './hero-detail/hero-detail.component';
-import { MessagesComponent } from './messages/messages.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-
 // Communication HTTP 
 // To make HttpClient available everywhere in the app :
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient} from '@angular/common/http';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
-import { HeroSearchComponent } from './hero-search/hero-search.component';
+
+// Composants spécifiques
+
 import { BlogComponent } from './blog/blog.component';
+
+// Imports pour lier à l'api de wordpress
+import { Http } from '@angular/http';
+
+import {
+  WpApiModule,
+  WpApiLoader,
+  WpApiStaticLoader
+} from 'wp-api-angular';
+
+import { AuthenticationComponent } from './authentication/authentication.component';
+import { UserListComponent } from './user-list/user-list.component';
+import { PostListComponent } from './post-list/post-list.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeroesComponent,
-    HeroDetailComponent,
-    MessagesComponent,
-    DashboardComponent,
-    HeroSearchComponent,
     BlogComponent,
+    AuthenticationComponent,
+    UserListComponent,
+    PostListComponent,
+    NavigationComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     ),
+    
+    BrowserModule,
+    FormsModule,
+    HttpClientModule, // <---
+    WpApiModule.forRoot({ // <---
+      provide: WpApiLoader,
+      useFactory: (WpApiLoaderFactory),
+      deps: [Http]
+    })
+
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+/**
+ * Initialisation de la connection avec le WorPress
+ * https://www.sitepoint.com/angular-wordpress-wp-api-angular/
+ * 
+ * @param http 
+ */
+export function WpApiLoaderFactory(http: Http) {
+  // return new WpApiStaticLoader(http, 'https://algerian-challengers.com/wp-json/wp/v2/', '');
+  return new WpApiStaticLoader(http, 'https://algerian-challengers.5.colin.engineer/wp-json/wp/v2/', '');
+
+}

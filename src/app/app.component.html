@@ -33,45 +33,14 @@
       <div class="clearfix"></div>
     </div>
   </div>
-  <!-- Navigation -->
-  <!--head-bottom-->
-  <div class="head-bottom">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-          aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
-      <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-          <li [routerLinkActive]="'active'" ><a routerLink="/dashboard">Dashboard</a></li>
-          <li [routerLinkActive]="'active'" ><a routerLink="/heroes"  >Heroes</a></li>
-          <li [routerLinkActive]="'active'"><a routerLink="/blog" >Blog</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tech
-              <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="tech.html">Action</a></li>
-              <li><a href="tech.html">Action</a></li>
-              <li><a href="tech.html">Action</a></li>
-            </ul>
-          </li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <!--/.nav-collapse -->
-    </div>
-    <nav></nav>
-  </div>
-  <!--head-bottom-->
+  <app-navigation></app-navigation>
+
 </div>
 
 <!-- banner -->
-<div class="banner"></div>
+<div class="banner">
+
+</div>
 <!-- technology -->
 <div class="technology">
   <div class="container">
@@ -82,9 +51,12 @@
         <!-- technology-top -->
         <div class="tc-ch">
 
+
+        
           <!-- Le routeur affiche ce qui correspond à l'url dans sa configuration -->
-          <!-- Configuration dans app-routing.module.ts -->
+          <!-- Configuration dans src/app/app-routing.module.ts -->
           <router-outlet></router-outlet>
+
 
         </div>
         <div class="clearfix"></div>
@@ -95,8 +67,8 @@
       <div class="col-md-3 .col-xs-12">
         <div class="blo-top">
           <div class="tech-btm">
-            <h4>Sign up to our newsletter</h4>
-            <p>Pellentesque dui, non felis. Maecenas male</p>
+            <h4>Rester informer</h4>
+            <p></p>
             <div class="name">
               <form>
                 <input type="text" placeholder="Email" required="">
@@ -112,14 +84,14 @@
         </div>
         <div class="blo-top1">
           <div class="tech-btm">
-            <h4>Top stories of the week </h4>
+            <h4>Derniers articles</h4>
             <div class="blog-grids">
               <div class="blog-grid-left">
                 <a href="singlepage.html"><img src="./assets/images/6.jpg" class="img-responsive" alt="" /></a>
               </div>
               <div class="blog-grid-right">
 
-                <h5><a href="singlepage.html">Pellentesque dui, non felis. Maecenas male</a> </h5>
+                <h5><a href="singlepage.html">International Leadership Programme</a> </h5>
               </div>
               <div class="clearfix"> </div>
             </div>
@@ -129,7 +101,7 @@
               </div>
               <div class="blog-grid-right">
 
-                <h5><a href="singlepage.html">Pellentesque dui, non felis. Maecenas male</a> </h5>
+                <h5><a href="singlepage.html">Solimed ALGERIE</a> </h5>
               </div>
               <div class="clearfix"> </div>
             </div>
@@ -202,8 +174,6 @@
   <div class="container">
     <p>© 2016 Business_Blog. All rights reserved | Template by <a href="http://w3layouts.com/">W3layouts</a></p>
     <p>
-      <!-- Affichage du composant messages situé dans le dossier ./app/messages/ -->
-      <app-messages></app-messages>
     </p>
   </div>
 </div>
