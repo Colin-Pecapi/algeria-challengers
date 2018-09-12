@@ -7,10 +7,10 @@ import { PostListComponent } from './post-list/post-list.component';
 
 // Constante contenant les urls et les composants correspondants.
 const routes: Routes = [
-  { path: '', redirectTo:'/dashboard', pathMatch: "full" },
+  // { path: '', redirectTo:'/dashboard', pathMatch: "full" },
   { path: 'post/:post', component: BlogComponent},
   { path: 'category/:category', component: PostListComponent},
-  { path: 'dashboard', component: BlogComponent},
+  { path: '', component: BlogComponent},
 
 ];
 
