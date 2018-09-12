@@ -1,3 +1,6 @@
+
+<div *ngIf="post.content; else noPosts">
+
 <h3><a>{{post.title.rendered}}</a></h3>
 <p [innerHTML]="post.content.rendered"></p>
 
@@ -10,3 +13,8 @@
     <li><i class="glyphicon glyphicon-eye-open"> </i>1.128 views</li>
   </ul>
 </div>
+</div>
+
+<ng-template #noPosts>
+  <p>Chargement ou liste vide</p>
+</ng-template>
