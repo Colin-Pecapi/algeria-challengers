@@ -19,6 +19,9 @@ export class PostListComponent implements OnInit {
     /** Articles publiés sur le site */
   post = {};
 
+  /** Slug de la catégorie */
+  categorySlug = '';
+
 
   constructor(
     private route: ActivatedRoute,
@@ -33,11 +36,11 @@ export class PostListComponent implements OnInit {
     // The JavaScript (+) operator converts the string to a number, which is what a hero id should be.
 
     // const categorySlug = 'angleterre';
-    const categorySlug = this.route.snapshot.paramMap.get('category');
+    this.categorySlug = this.route.snapshot.paramMap.get('category');
 
-    if (categorySlug) {
+    if (this.categorySlug) {
 
-      this.getPostsByCategorySlug(categorySlug);
+      this.getPostsByCategorySlug(this.categorySlug);
     } else {
       this.getPostList();
     }

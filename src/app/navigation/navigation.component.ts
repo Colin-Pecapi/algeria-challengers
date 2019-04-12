@@ -18,6 +18,7 @@ export class NavigationComponent implements OnInit {
   constructor(private wpApiTerms: WpApiTerms) { }
 
   ngOnInit() {
+      
     this.getCategoriestList().then(
       response => {
         // Si la promise réussit, le Json est extait dans l'attribut users
@@ -25,15 +26,27 @@ export class NavigationComponent implements OnInit {
         this.categories = json;
       }
     );
+
   }
 
   /**
+   * Asynchrone
    * Récupere les catégories depuis le site en utilisant wpApiTerms
    */
-  getCategoriestList(): Promise<any> {
+   getCategoriestList(): Promise<any> {
     return this.wpApiTerms.getList('categories')
     .toPromise();
   }
+  /**
+   * Synchrone : 
+   * "async" indique que la méthode a un traitement asynchrone
+   * "await" permet d'attendre la réponse avant de continuer le script
+   * 
+   * Récupere les catégories depuis le site en utilisant wpApiTerms
+   */
+  async getCategoriestListSync(): Promise<any> {
+    return await this.wpApiTerms.getList('categories')
+    .toPromise();  }
   /**
    * Récupere la catégorie ayant le slug 
    */

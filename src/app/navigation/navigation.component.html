@@ -17,9 +17,9 @@
 
 <div id="navbar" class="navbar-collapse collapse">
     <ul class="nav navbar-nav">
-      <li [routerLinkActive]="'active'"><a routerLink="/dashboard"><i class="glyphicon glyphicon-home"></i></a></li>
+      <li [routerLinkActive]="'active'"><a routerLink="/"><i class="glyphicon glyphicon-home"></i></a></li>
       <li *ngFor="let category of categories" [routerLinkActive]="'active'" id="id-{{category.id}}">
-        <a routerLink="category/{{category.slug}}" [innerHTML]="category.name"></a>
+        <a routerLink="/category/{{category.slug}}" [innerHTML]="category.name"></a>
       </li>
     </ul>
   </div>

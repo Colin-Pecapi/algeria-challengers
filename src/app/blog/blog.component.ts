@@ -38,6 +38,8 @@ export class BlogComponent implements OnInit {
       this.getPostBySlug(postSlug)
     }else{
       this.getPostBySlug('femmes-algeriennes-entrepreneurs');
+      // this.getPostBySlug('a-propos');
+      
       // this.getLastPost();
     }
   }
